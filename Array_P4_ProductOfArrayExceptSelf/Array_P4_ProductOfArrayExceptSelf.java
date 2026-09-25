@@ -16,4 +16,20 @@ public class Array_P4_ProductOfArrayExceptSelf {
     public boolean validateInput(int[] nums) {
         return nums != null && nums.length >= 2;
     }
+
+    public int[] productExceptSelfBruteForce(int[] nums) {
+        if (!validateInput(nums)) return new int[0];
+        int n = nums.length;
+        int[] res = new int[n];
+        for (int i = 0; i < n; i++) {
+            int prod = 1;
+            for (int j = 0; j < n; j++) {
+                if (i != j) {
+                    prod *= nums[j];
+                }
+            }
+            res[i] = prod;
+        }
+        return res;
+    }
 }
