@@ -80,10 +80,13 @@ public class Array_P6_ContainerWithMostWater {
         Array_P6_ContainerWithMostWater solver = new Array_P6_ContainerWithMostWater();
         int[] height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
 
+        System.out.println("==================================================");
         System.out.println("Problem 6: Container With Most Water Suite");
+        System.out.println("==================================================");
         System.out.println("Input Heights: " + Arrays.toString(height));
         System.out.println("Brute Force Result:     " + solver.maxAreaBruteForce(height));
         System.out.println("Two Pointers Result:    " + solver.maxAreaTwoPointers(height));
         System.out.println("Optimized Skip Result:  " + solver.maxAreaOptimizedTwoPointers(height));
+        System.out.println("==================================================");
     }
 }
