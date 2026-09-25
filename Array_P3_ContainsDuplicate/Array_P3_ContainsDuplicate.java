@@ -64,12 +64,19 @@ public class Array_P3_ContainsDuplicate {
 
     public static void main(String[] args) {
         Array_P3_ContainsDuplicate solver = new Array_P3_ContainsDuplicate();
-        int[] nums = {1, 2, 3, 1};
+        int[] nums1 = {1, 2, 3, 1};
+        int[] nums2 = {1, 2, 3, 4};
 
+        System.out.println("==================================================");
         System.out.println("Problem 3: Contains Duplicate Test Suite");
-        System.out.println("Input: " + Arrays.toString(nums));
-        System.out.println("Brute Force: " + solver.containsDuplicateBruteForce(nums));
-        System.out.println("Sorting:     " + solver.containsDuplicateSorting(nums));
-        System.out.println("Hash Set:    " + solver.containsDuplicateOptimal(nums));
+        System.out.println("==================================================");
+        System.out.println("Input 1: " + Arrays.toString(nums1));
+        System.out.println("Brute Force: " + solver.containsDuplicateBruteForce(nums1));
+        System.out.println("Sorting:     " + solver.containsDuplicateSorting(nums1));
+        System.out.println("Hash Set:    " + solver.containsDuplicateOptimal(nums1));
+        System.out.println("--------------------------------------------------");
+        System.out.println("Input 2: " + Arrays.toString(nums2));
+        System.out.println("Hash Set:    " + solver.containsDuplicateOptimal(nums2));
+        System.out.println("==================================================");
     }
 }
