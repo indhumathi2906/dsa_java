@@ -11,4 +11,8 @@ package Array_P5_MaximumSubarray;
  * Space Complexity: Brute Force O(1), Divide & Conquer O(log N) stack, Kadane's Algorithm O(1)
  */
 public class Array_P5_MaximumSubarray {
+
+    public boolean validateInput(int[] nums) {
+        return nums != null && nums.length > 0;
+    }
 }
