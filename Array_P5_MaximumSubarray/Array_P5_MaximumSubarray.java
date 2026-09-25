@@ -15,4 +15,18 @@ public class Array_P5_MaximumSubarray {
     public boolean validateInput(int[] nums) {
         return nums != null && nums.length > 0;
     }
+
+    public int maxSubArrayBruteForce(int[] nums) {
+        if (!validateInput(nums)) return 0;
+        int n = nums.length;
+        int maxSum = Integer.MIN_VALUE;
+        for (int i = 0; i < n; i++) {
+            int currentSum = 0;
+            for (int j = i; j < n; j++) {
+                currentSum += nums[j];
+                maxSum = Math.max(maxSum, currentSum);
+            }
+        }
+        return maxSum;
+    }
 }
