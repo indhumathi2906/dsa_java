@@ -72,12 +72,19 @@ public class Array_P2_BestTimeToBuyAndSellStock {
 
     public static void main(String[] args) {
         Array_P2_BestTimeToBuyAndSellStock solver = new Array_P2_BestTimeToBuyAndSellStock();
-        int[] prices = {7, 1, 5, 3, 6, 4};
+        int[] prices1 = {7, 1, 5, 3, 6, 4};
+        int[] prices2 = {7, 6, 4, 3, 1};
 
+        System.out.println("==================================================");
         System.out.println("Problem 2: Best Time to Buy and Sell Stock Suite");
-        System.out.println("Prices: " + Arrays.toString(prices));
-        System.out.println("Brute Force Max Profit: " + solver.maxProfitBruteForce(prices));
-        System.out.println("DP Tabulation Profit:   " + solver.maxProfitDP(prices));
-        System.out.println("Optimal Greedy Profit:  " + solver.maxProfitOptimal(prices));
+        System.out.println("==================================================");
+        System.out.println("Test 1 Prices: " + Arrays.toString(prices1));
+        System.out.println("Brute Force Max Profit: " + solver.maxProfitBruteForce(prices1));
+        System.out.println("DP Tabulation Profit:   " + solver.maxProfitDP(prices1));
+        System.out.println("Optimal Greedy Profit:  " + solver.maxProfitOptimal(prices1));
+        System.out.println("--------------------------------------------------");
+        System.out.println("Test 2 Prices: " + Arrays.toString(prices2));
+        System.out.println("Optimal Greedy Profit:  " + solver.maxProfitOptimal(prices2));
+        System.out.println("==================================================");
     }
 }
