@@ -16,4 +16,17 @@ public class Array_P3_ContainsDuplicate {
     public boolean validateInput(int[] nums) {
         return nums != null && nums.length >= 2;
     }
+
+    public boolean containsDuplicateBruteForce(int[] nums) {
+        if (!validateInput(nums)) return false;
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
