@@ -1,5 +1,7 @@
 package Array_P3_ContainsDuplicate;
 
+import java.util.Arrays;
+
 /**
  * Array Problem 3: 217. Contains Duplicate (LeetCode #217)
  * Link: https://leetcode.com/problems/contains-duplicate/
@@ -25,6 +27,18 @@ public class Array_P3_ContainsDuplicate {
                 if (nums[i] == nums[j]) {
                     return true;
                 }
+            }
+        }
+        return false;
+    }
+
+    public boolean containsDuplicateSorting(int[] nums) {
+        if (!validateInput(nums)) return false;
+        int[] sorted = nums.clone();
+        Arrays.sort(sorted);
+        for (int i = 0; i < sorted.length - 1; i++) {
+            if (sorted[i] == sorted[i + 1]) {
+                return true;
             }
         }
         return false;
