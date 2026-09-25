@@ -32,4 +32,21 @@ public class Array_P2_BestTimeToBuyAndSellStock {
         }
         return maxProfit;
     }
+
+    public int maxProfitDP(int[] prices) {
+        if (!validatePrices(prices)) return 0;
+        int n = prices.length;
+        int[] minPriceSoFar = new int[n];
+        minPriceSoFar[0] = prices[0];
+        for (int i = 1; i < n; i++) {
+            minPriceSoFar[i] = Math.min(minPriceSoFar[i - 1], prices[i]);
+        }
+
+        int maxProfit = 0;
+        for (int i = 1; i < n; i++) {
+            int profit = prices[i] - minPriceSoFar[i - 1];
+            maxProfit = Math.max(maxProfit, profit);
+        }
+        return maxProfit;
+    }
 }
