@@ -55,4 +55,22 @@ public class Array_P4_ProductOfArrayExceptSelf {
         }
         return res;
     }
+
+    public int[] productExceptSelfOptimal(int[] nums) {
+        if (!validateInput(nums)) return new int[0];
+        int n = nums.length;
+        int[] res = new int[n];
+
+        res[0] = 1;
+        for (int i = 1; i < n; i++) {
+            res[i] = res[i - 1] * nums[i - 1];
+        }
+
+        int rightMultiplier = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            res[i] *= rightMultiplier;
+            rightMultiplier *= nums[i];
+        }
+        return res;
+    }
 }
