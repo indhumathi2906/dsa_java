@@ -12,4 +12,8 @@ package Array_P4_ProductOfArrayExceptSelf;
  * Space Complexity: Brute Force O(1) auxiliary, Prefix/Suffix O(N), Optimal Space O(1) auxiliary
  */
 public class Array_P4_ProductOfArrayExceptSelf {
+
+    public boolean validateInput(int[] nums) {
+        return nums != null && nums.length >= 2;
+    }
 }
