@@ -85,10 +85,13 @@ public class Array_P1_TwoSum {
         int[] nums = {2, 7, 11, 15};
         int target = 9;
 
+        System.out.println("==================================================");
         System.out.println("Problem 1: Two Sum Test Suite");
+        System.out.println("==================================================");
         System.out.println("Input: " + Arrays.toString(nums) + ", Target: " + target);
-        System.out.println("Brute Force Result: " + Arrays.toString(solver.twoSumBruteForce(nums, target)));
-        System.out.println("Two Pointers Result: " + Arrays.toString(solver.twoSumTwoPointer(nums, target)));
-        System.out.println("Optimal Hash Map Result: " + Arrays.toString(solver.twoSumOptimal(nums, target)));
+        System.out.println("Brute Force Result:     " + Arrays.toString(solver.twoSumBruteForce(nums, target)));
+        System.out.println("Two Pointers Result:    " + Arrays.toString(solver.twoSumTwoPointer(nums, target)));
+        System.out.println("Optimal Hash Map Result:" + Arrays.toString(solver.twoSumOptimal(nums, target)));
+        System.out.println("==================================================");
     }
 }
