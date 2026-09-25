@@ -86,10 +86,13 @@ public class Array_P4_ProductOfArrayExceptSelf {
         Array_P4_ProductOfArrayExceptSelf solver = new Array_P4_ProductOfArrayExceptSelf();
         int[] nums = {1, 2, 3, 4};
 
+        System.out.println("==================================================");
         System.out.println("Problem 4: Product of Array Except Self Suite");
+        System.out.println("==================================================");
         System.out.println("Input Array: " + Arrays.toString(nums));
         System.out.println("Brute Force Result:     " + Arrays.toString(solver.productExceptSelfBruteForce(nums)));
         System.out.println("Prefix/Suffix Result:   " + Arrays.toString(solver.productExceptSelfPrefixSuffix(nums)));
         System.out.println("Optimal Space Result:   " + Arrays.toString(solver.productExceptSelfOptimal(nums)));
+        System.out.println("==================================================");
     }
 }
