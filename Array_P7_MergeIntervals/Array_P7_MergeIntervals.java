@@ -57,4 +57,20 @@ public class Array_P7_MergeIntervals {
         }
         return merged.toArray(new int[merged.size()][]);
     }
+
+    public int[][] mergeOptimal(int[][] intervals) {
+        if (!validateIntervals(intervals)) return new int[0][0];
+        Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
+        int index = 0;
+
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[index][1] >= intervals[i][0]) {
+                intervals[index][1] = Math.max(intervals[index][1], intervals[i][1]);
+            } else {
+                index++;
+                intervals[index] = intervals[i];
+            }
+        }
+        return Arrays.copyOf(intervals, index + 1);
+    }
 }
