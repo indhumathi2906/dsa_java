@@ -56,4 +56,15 @@ public class Array_P3_ContainsDuplicate {
         }
         return false;
     }
+
+    public static void main(String[] args) {
+        Array_P3_ContainsDuplicate solver = new Array_P3_ContainsDuplicate();
+        int[] nums = {1, 2, 3, 1};
+
+        System.out.println("Problem 3: Contains Duplicate Test Suite");
+        System.out.println("Input: " + Arrays.toString(nums));
+        System.out.println("Brute Force: " + solver.containsDuplicateBruteForce(nums));
+        System.out.println("Sorting:     " + solver.containsDuplicateSorting(nums));
+        System.out.println("Hash Set:    " + solver.containsDuplicateOptimal(nums));
+    }
 }
