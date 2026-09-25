@@ -73,4 +73,15 @@ public class Array_P7_MergeIntervals {
         }
         return Arrays.copyOf(intervals, index + 1);
     }
+
+    public static void main(String[] args) {
+        Array_P7_MergeIntervals solver = new Array_P7_MergeIntervals();
+        int[][] intervals = {{1, 3}, {2, 6}, {8, 10}, {15, 18}};
+
+        System.out.println("Problem 7: Merge Intervals Test Suite");
+        System.out.println("Input Intervals: " + Arrays.deepToString(intervals));
+        System.out.println("Brute Force Result:   " + Arrays.deepToString(solver.mergeBruteForce(intervals)));
+        System.out.println("Sorting List Result:  " + Arrays.deepToString(solver.mergeSortingList(intervals)));
+        System.out.println("Optimal Array Result: " + Arrays.deepToString(solver.mergeOptimal(intervals)));
+    }
 }
