@@ -30,4 +30,23 @@ public class Array_P6_ContainerWithMostWater {
         }
         return maxArea;
     }
+
+    public int maxAreaTwoPointers(int[] height) {
+        if (!validateHeight(height)) return 0;
+        int left = 0, right = height.length - 1;
+        int maxArea = 0;
+
+        while (left < right) {
+            int h = Math.min(height[left], height[right]);
+            int w = right - left;
+            maxArea = Math.max(maxArea, h * w);
+
+            if (height[left] < height[right]) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return maxArea;
+    }
 }
