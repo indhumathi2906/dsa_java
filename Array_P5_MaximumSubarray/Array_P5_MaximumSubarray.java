@@ -14,10 +14,12 @@ import java.util.Arrays;
  */
 public class Array_P5_MaximumSubarray {
 
+    // Validates input array
     public boolean validateInput(int[] nums) {
         return nums != null && nums.length > 0;
     }
 
+    // Approach 1: Brute Force All Subarrays O(N^2) Time, O(1) Space
     public int maxSubArrayBruteForce(int[] nums) {
         if (!validateInput(nums)) return 0;
         int n = nums.length;
@@ -32,6 +34,7 @@ public class Array_P5_MaximumSubarray {
         return maxSum;
     }
 
+    // Approach 2: Divide and Conquer O(N log N) Time, O(log N) Call Stack Space
     public int maxSubArrayDivideAndConquer(int[] nums) {
         if (!validateInput(nums)) return 0;
         return helperDivideAndConquer(nums, 0, nums.length - 1);
@@ -66,12 +69,14 @@ public class Array_P5_MaximumSubarray {
         return leftSum + rightSum;
     }
 
+    // Approach 3: Kadane's Algorithm O(N) Time, O(1) Space
     public int maxSubArrayKadane(int[] nums) {
         if (!validateInput(nums)) return 0;
         int maxSoFar = nums[0];
         int currentSum = nums[0];
 
         for (int i = 1; i < nums.length; i++) {
+            // Decide whether to extend current subarray or start fresh from nums[i]
             currentSum = Math.max(nums[i], currentSum + nums[i]);
             maxSoFar = Math.max(maxSoFar, currentSum);
         }
