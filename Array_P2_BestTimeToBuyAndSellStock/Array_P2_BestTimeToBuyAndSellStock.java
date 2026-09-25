@@ -1,5 +1,7 @@
 package Array_P2_BestTimeToBuyAndSellStock;
 
+import java.util.Arrays;
+
 /**
  * Array Problem 2: 121. Best Time to Buy and Sell Stock (LeetCode #121)
  * Link: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
@@ -62,5 +64,16 @@ public class Array_P2_BestTimeToBuyAndSellStock {
             }
         }
         return maxProfit;
+    }
+
+    public static void main(String[] args) {
+        Array_P2_BestTimeToBuyAndSellStock solver = new Array_P2_BestTimeToBuyAndSellStock();
+        int[] prices = {7, 1, 5, 3, 6, 4};
+
+        System.out.println("Problem 2: Best Time to Buy and Sell Stock Suite");
+        System.out.println("Prices: " + Arrays.toString(prices));
+        System.out.println("Brute Force Max Profit: " + solver.maxProfitBruteForce(prices));
+        System.out.println("DP Tabulation Profit:   " + solver.maxProfitDP(prices));
+        System.out.println("Optimal Greedy Profit:  " + solver.maxProfitOptimal(prices));
     }
 }
