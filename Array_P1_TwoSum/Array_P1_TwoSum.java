@@ -16,4 +16,17 @@ public class Array_P1_TwoSum {
     public boolean validateInput(int[] nums) {
         return nums != null && nums.length >= 2;
     }
+
+    public int[] twoSumBruteForce(int[] nums, int target) {
+        if (!validateInput(nums)) return new int[0];
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return new int[0];
+    }
 }
