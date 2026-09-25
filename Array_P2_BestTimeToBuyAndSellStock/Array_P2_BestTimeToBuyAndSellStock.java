@@ -13,4 +13,8 @@ package Array_P2_BestTimeToBuyAndSellStock;
  * Space Complexity: Brute Force O(1), DP Tabulation O(N), Optimal Greedy O(1)
  */
 public class Array_P2_BestTimeToBuyAndSellStock {
+
+    public boolean validatePrices(int[] prices) {
+        return prices != null && prices.length >= 2;
+    }
 }
