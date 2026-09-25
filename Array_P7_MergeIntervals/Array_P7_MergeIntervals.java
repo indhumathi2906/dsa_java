@@ -17,10 +17,12 @@ import java.util.List;
  */
 public class Array_P7_MergeIntervals {
 
+    // Validates input intervals array
     public boolean validateIntervals(int[][] intervals) {
         return intervals != null && intervals.length > 0;
     }
 
+    // Approach 1: Naive Overlap Scan O(N^2) Time, O(N) Space
     public int[][] mergeBruteForce(int[][] intervals) {
         if (!validateIntervals(intervals)) return new int[0][0];
         int n = intervals.length;
@@ -43,28 +45,34 @@ public class Array_P7_MergeIntervals {
         return result.toArray(new int[result.size()][]);
     }
 
+    // Approach 2: Sorting + ArrayList Accumulation O(N log N) Time, O(N) Space
     public int[][] mergeSortingList(int[][] intervals) {
         if (!validateIntervals(intervals)) return new int[0][0];
+        // Sort intervals by start value
         Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
         List<int[]> merged = new ArrayList<>();
 
         for (int[] interval : intervals) {
+            // If list is empty or current interval doesn't overlap with previous
             if (merged.isEmpty() || merged.get(merged.size() - 1)[1] < interval[0]) {
                 merged.add(interval);
             } else {
+                // Overlap exists: update end time of previous interval
                 merged.get(merged.size() - 1)[1] = Math.max(merged.get(merged.size() - 1)[1], interval[1]);
             }
         }
         return merged.toArray(new int[merged.size()][]);
     }
 
+    // Approach 3: Optimal In-Place Array Formatting O(N log N) Time, O(N) Space
     public int[][] mergeOptimal(int[][] intervals) {
         if (!validateIntervals(intervals)) return new int[0][0];
         Arrays.sort(intervals, (a, b) -> Integer.compare(a[0], b[0]));
-        int index = 0;
+        int index = 0; // Pointer to current position in merged output
 
         for (int i = 1; i < intervals.length; i++) {
             if (intervals[index][1] >= intervals[i][0]) {
+                // Overlapping condition: merge with intervals[index]
                 intervals[index][1] = Math.max(intervals[index][1], intervals[i][1]);
             } else {
                 index++;
