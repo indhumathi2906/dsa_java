@@ -16,4 +16,18 @@ public class Array_P6_ContainerWithMostWater {
     public boolean validateHeight(int[] height) {
         return height != null && height.length >= 2;
     }
+
+    public int maxAreaBruteForce(int[] height) {
+        if (!validateHeight(height)) return 0;
+        int maxArea = 0;
+        int n = height.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int h = Math.min(height[i], height[j]);
+                int w = j - i;
+                maxArea = Math.max(maxArea, h * w);
+            }
+        }
+        return maxArea;
+    }
 }
