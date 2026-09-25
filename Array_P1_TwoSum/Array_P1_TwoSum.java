@@ -12,4 +12,8 @@ package Array_P1_TwoSum;
  * Space Complexity: Brute Force O(1), Two Pointers O(N), Hash Map O(N)
  */
 public class Array_P1_TwoSum {
+
+    public boolean validateInput(int[] nums) {
+        return nums != null && nums.length >= 2;
+    }
 }
