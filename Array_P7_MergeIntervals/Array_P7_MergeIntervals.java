@@ -12,4 +12,8 @@ package Array_P7_MergeIntervals;
  * Space Complexity: Brute Force O(N), Sorting + List O(N), Optimal Array Conversion O(N)
  */
 public class Array_P7_MergeIntervals {
+
+    public boolean validateIntervals(int[][] intervals) {
+        return intervals != null && intervals.length > 0;
+    }
 }
