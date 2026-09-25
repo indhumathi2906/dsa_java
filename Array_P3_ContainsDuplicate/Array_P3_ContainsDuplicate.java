@@ -17,10 +17,12 @@ import java.util.Set;
  */
 public class Array_P3_ContainsDuplicate {
 
+    // Validates input array
     public boolean validateInput(int[] nums) {
         return nums != null && nums.length >= 2;
     }
 
+    // Approach 1: Brute Force Nested Loop Search O(N^2) Time, O(1) Space
     public boolean containsDuplicateBruteForce(int[] nums) {
         if (!validateInput(nums)) return false;
         int n = nums.length;
@@ -34,6 +36,7 @@ public class Array_P3_ContainsDuplicate {
         return false;
     }
 
+    // Approach 2: Sorting Adjacent Check O(N log N) Time, O(1) Space
     public boolean containsDuplicateSorting(int[] nums) {
         if (!validateInput(nums)) return false;
         int[] sorted = nums.clone();
@@ -46,10 +49,12 @@ public class Array_P3_ContainsDuplicate {
         return false;
     }
 
+    // Approach 3: Hash Set Lookup O(N) Time, O(N) Space
     public boolean containsDuplicateOptimal(int[] nums) {
         if (!validateInput(nums)) return false;
         Set<Integer> set = new HashSet<>();
         for (int num : nums) {
+            // set.add() returns false if element already present in set
             if (!set.add(num)) {
                 return true;
             }
