@@ -1,5 +1,7 @@
 package Array_P1_TwoSum;
 
+import java.util.Arrays;
+
 /**
  * Array Problem 1: 1. Two Sum (LeetCode #1)
  * Link: https://leetcode.com/problems/two-sum/
@@ -25,6 +27,30 @@ public class Array_P1_TwoSum {
                 if (nums[i] + nums[j] == target) {
                     return new int[]{i, j};
                 }
+            }
+        }
+        return new int[0];
+    }
+
+    public int[] twoSumTwoPointer(int[] nums, int target) {
+        if (!validateInput(nums)) return new int[0];
+        int n = nums.length;
+        int[][] pairs = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            pairs[i][0] = nums[i];
+            pairs[i][1] = i;
+        }
+        Arrays.sort(pairs, (a, b) -> Integer.compare(a[0], b[0]));
+
+        int left = 0, right = n - 1;
+        while (left < right) {
+            int sum = pairs[left][0] + pairs[right][0];
+            if (sum == target) {
+                return new int[]{pairs[left][1], pairs[right][1]};
+            } else if (sum < target) {
+                left++;
+            } else {
+                right--;
             }
         }
         return new int[0];
