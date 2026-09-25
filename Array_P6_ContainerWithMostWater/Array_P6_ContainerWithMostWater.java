@@ -15,10 +15,12 @@ import java.util.Arrays;
  */
 public class Array_P6_ContainerWithMostWater {
 
+    // Validates input height array
     public boolean validateHeight(int[] height) {
         return height != null && height.length >= 2;
     }
 
+    // Approach 1: Brute Force Pairwise Area Calculation O(N^2) Time, O(1) Space
     public int maxAreaBruteForce(int[] height) {
         if (!validateHeight(height)) return 0;
         int maxArea = 0;
@@ -33,6 +35,7 @@ public class Array_P6_ContainerWithMostWater {
         return maxArea;
     }
 
+    // Approach 2: Standard Two Pointers Shrinking Window O(N) Time, O(1) Space
     public int maxAreaTwoPointers(int[] height) {
         if (!validateHeight(height)) return 0;
         int left = 0, right = height.length - 1;
@@ -44,14 +47,15 @@ public class Array_P6_ContainerWithMostWater {
             maxArea = Math.max(maxArea, h * w);
 
             if (height[left] < height[right]) {
-                left++;
+                left++; // Move left pointer inward to seek taller line
             } else {
-                right--;
+                right--; // Move right pointer inward to seek taller line
             }
         }
         return maxArea;
     }
 
+    // Approach 3: Optimized Two Pointers with Line Skipping O(N) Time, O(1) Space
     public int maxAreaOptimizedTwoPointers(int[] height) {
         if (!validateHeight(height)) return 0;
         int left = 0, right = height.length - 1;
@@ -61,6 +65,7 @@ public class Array_P6_ContainerWithMostWater {
             int minH = Math.min(height[left], height[right]);
             maxArea = Math.max(maxArea, minH * (right - left));
 
+            // Fast forward past any lines shorter than current minH
             while (left < right && height[left] <= minH) {
                 left++;
             }
