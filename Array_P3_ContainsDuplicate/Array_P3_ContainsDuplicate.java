@@ -1,6 +1,8 @@
 package Array_P3_ContainsDuplicate;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Array Problem 3: 217. Contains Duplicate (LeetCode #217)
@@ -38,6 +40,17 @@ public class Array_P3_ContainsDuplicate {
         Arrays.sort(sorted);
         for (int i = 0; i < sorted.length - 1; i++) {
             if (sorted[i] == sorted[i + 1]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean containsDuplicateOptimal(int[] nums) {
+        if (!validateInput(nums)) return false;
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (!set.add(num)) {
                 return true;
             }
         }
