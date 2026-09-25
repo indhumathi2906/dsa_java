@@ -12,4 +12,8 @@ package Array_P6_ContainerWithMostWater;
  * Space Complexity: Brute Force O(1), Two Pointers O(1), Optimized Two Pointers O(1)
  */
 public class Array_P6_ContainerWithMostWater {
+
+    public boolean validateHeight(int[] height) {
+        return height != null && height.length >= 2;
+    }
 }
