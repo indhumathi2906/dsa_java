@@ -1,5 +1,7 @@
 package Array_P6_ContainerWithMostWater;
 
+import java.util.Arrays;
+
 /**
  * Array Problem 6: 11. Container With Most Water (LeetCode #11)
  * Link: https://leetcode.com/problems/container-with-most-water/
@@ -67,5 +69,16 @@ public class Array_P6_ContainerWithMostWater {
             }
         }
         return maxArea;
+    }
+
+    public static void main(String[] args) {
+        Array_P6_ContainerWithMostWater solver = new Array_P6_ContainerWithMostWater();
+        int[] height = {1, 8, 6, 2, 5, 4, 8, 3, 7};
+
+        System.out.println("Problem 6: Container With Most Water Suite");
+        System.out.println("Input Heights: " + Arrays.toString(height));
+        System.out.println("Brute Force Result:     " + solver.maxAreaBruteForce(height));
+        System.out.println("Two Pointers Result:    " + solver.maxAreaTwoPointers(height));
+        System.out.println("Optimized Skip Result:  " + solver.maxAreaOptimizedTwoPointers(height));
     }
 }
