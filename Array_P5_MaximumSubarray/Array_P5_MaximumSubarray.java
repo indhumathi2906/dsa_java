@@ -1,5 +1,7 @@
 package Array_P5_MaximumSubarray;
 
+import java.util.Arrays;
+
 /**
  * Array Problem 5: 53. Maximum Subarray (LeetCode #53)
  * Link: https://leetcode.com/problems/maximum-subarray/
@@ -74,5 +76,16 @@ public class Array_P5_MaximumSubarray {
             maxSoFar = Math.max(maxSoFar, currentSum);
         }
         return maxSoFar;
+    }
+
+    public static void main(String[] args) {
+        Array_P5_MaximumSubarray solver = new Array_P5_MaximumSubarray();
+        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+
+        System.out.println("Problem 5: Maximum Subarray Test Suite");
+        System.out.println("Input Array: " + Arrays.toString(nums));
+        System.out.println("Brute Force Result:       " + solver.maxSubArrayBruteForce(nums));
+        System.out.println("Divide & Conquer Result:  " + solver.maxSubArrayDivideAndConquer(nums));
+        System.out.println("Kadane's Algorithm Result: " + solver.maxSubArrayKadane(nums));
     }
 }
