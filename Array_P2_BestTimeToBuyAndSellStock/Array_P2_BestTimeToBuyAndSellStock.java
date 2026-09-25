@@ -17,4 +17,19 @@ public class Array_P2_BestTimeToBuyAndSellStock {
     public boolean validatePrices(int[] prices) {
         return prices != null && prices.length >= 2;
     }
+
+    public int maxProfitBruteForce(int[] prices) {
+        if (!validatePrices(prices)) return 0;
+        int maxProfit = 0;
+        int n = prices.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int profit = prices[j] - prices[i];
+                if (profit > maxProfit) {
+                    maxProfit = profit;
+                }
+            }
+        }
+        return maxProfit;
+    }
 }
