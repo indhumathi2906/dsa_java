@@ -15,10 +15,12 @@ import java.util.Arrays;
  */
 public class Array_P4_ProductOfArrayExceptSelf {
 
+    // Validates input array
     public boolean validateInput(int[] nums) {
         return nums != null && nums.length >= 2;
     }
 
+    // Approach 1: Brute Force Nested Product O(N^2) Time, O(1) Space
     public int[] productExceptSelfBruteForce(int[] nums) {
         if (!validateInput(nums)) return new int[0];
         int n = nums.length;
@@ -35,6 +37,7 @@ public class Array_P4_ProductOfArrayExceptSelf {
         return res;
     }
 
+    // Approach 2: Prefix and Suffix Arrays O(N) Time, O(N) Auxiliary Space
     public int[] productExceptSelfPrefixSuffix(int[] nums) {
         if (!validateInput(nums)) return new int[0];
         int n = nums.length;
@@ -58,16 +61,19 @@ public class Array_P4_ProductOfArrayExceptSelf {
         return res;
     }
 
+    // Approach 3: Optimal Single Output Array Accumulation O(N) Time, O(1) Auxiliary Space
     public int[] productExceptSelfOptimal(int[] nums) {
         if (!validateInput(nums)) return new int[0];
         int n = nums.length;
         int[] res = new int[n];
 
+        // Pass 1: Compute prefix products directly into output array
         res[0] = 1;
         for (int i = 1; i < n; i++) {
             res[i] = res[i - 1] * nums[i - 1];
         }
 
+        // Pass 2: Accumulate suffix products backwards using a single variable
         int rightMultiplier = 1;
         for (int i = n - 1; i >= 0; i--) {
             res[i] *= rightMultiplier;
