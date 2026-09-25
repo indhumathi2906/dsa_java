@@ -16,10 +16,12 @@ import java.util.Arrays;
  */
 public class Array_P2_BestTimeToBuyAndSellStock {
 
+    // Validates input price array
     public boolean validatePrices(int[] prices) {
         return prices != null && prices.length >= 2;
     }
 
+    // Approach 1: Brute Force Pairwise Comparison O(N^2) Time, O(1) Space
     public int maxProfitBruteForce(int[] prices) {
         if (!validatePrices(prices)) return 0;
         int maxProfit = 0;
@@ -35,6 +37,7 @@ public class Array_P2_BestTimeToBuyAndSellStock {
         return maxProfit;
     }
 
+    // Approach 2: 1D DP Prefix Min Tracking O(N) Time, O(N) Space
     public int maxProfitDP(int[] prices) {
         if (!validatePrices(prices)) return 0;
         int n = prices.length;
@@ -52,15 +55,16 @@ public class Array_P2_BestTimeToBuyAndSellStock {
         return maxProfit;
     }
 
+    // Approach 3: Optimal Single Pass Greedy State Tracking O(N) Time, O(1) Space
     public int maxProfitOptimal(int[] prices) {
         if (!validatePrices(prices)) return 0;
         int minPrice = Integer.MAX_VALUE;
         int maxProfit = 0;
         for (int price : prices) {
             if (price < minPrice) {
-                minPrice = price;
+                minPrice = price; // Update lowest buying price seen so far
             } else if (price - minPrice > maxProfit) {
-                maxProfit = price - minPrice;
+                maxProfit = price - minPrice; // Update max profit achievable
             }
         }
         return maxProfit;
