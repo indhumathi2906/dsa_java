@@ -1,5 +1,7 @@
 package Array_P4_ProductOfArrayExceptSelf;
 
+import java.util.Arrays;
+
 /**
  * Array Problem 4: 238. Product of Array Except Self (LeetCode #238)
  * Link: https://leetcode.com/problems/product-of-array-except-self/
@@ -72,5 +74,16 @@ public class Array_P4_ProductOfArrayExceptSelf {
             rightMultiplier *= nums[i];
         }
         return res;
+    }
+
+    public static void main(String[] args) {
+        Array_P4_ProductOfArrayExceptSelf solver = new Array_P4_ProductOfArrayExceptSelf();
+        int[] nums = {1, 2, 3, 4};
+
+        System.out.println("Problem 4: Product of Array Except Self Suite");
+        System.out.println("Input Array: " + Arrays.toString(nums));
+        System.out.println("Brute Force Result:     " + Arrays.toString(solver.productExceptSelfBruteForce(nums)));
+        System.out.println("Prefix/Suffix Result:   " + Arrays.toString(solver.productExceptSelfPrefixSuffix(nums)));
+        System.out.println("Optimal Space Result:   " + Arrays.toString(solver.productExceptSelfOptimal(nums)));
     }
 }
