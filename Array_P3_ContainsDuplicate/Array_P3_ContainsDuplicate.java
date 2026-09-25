@@ -12,4 +12,8 @@ package Array_P3_ContainsDuplicate;
  * Space Complexity: Brute Force O(1), Sorting O(1) auxiliary, Hash Set O(N)
  */
 public class Array_P3_ContainsDuplicate {
+
+    public boolean validateInput(int[] nums) {
+        return nums != null && nums.length >= 2;
+    }
 }
